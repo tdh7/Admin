@@ -1,0 +1,160 @@
+
+<div class="container-fluid  dashboard-content">
+    <!-- ============================================================== -->
+    <!-- pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+                <h2 class="pageheader-title">Top 10 danh mục bán chạy</h2>
+                <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                <div class="page-breadcrumb">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Trang chính</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top 10 danh mục bán chạy</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h3 class="card-header">Sản phẩm</h3>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered first">
+                            <thead>
+                            <tr>
+                                <th>Số thứ tự</th>
+                                <th>Mã danh mục</th>
+                                <th>Tên danh mục</th>
+                                <th>Số lượng sản phẩm</th>
+                                <th>Tổng doanh thu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><strong>#1</strong></td>
+                                <td>OrderAZ1</td>
+                                <td>Laptop</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr>
+                            <tr>
+                                <td><strong>#2</strong></td>
+
+                                <td>OrderAZ2</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#3</strong></td>
+
+                                <td>OrderAZ3</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#4</strong></td>
+                                <td>OrderAZ4</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#5</strong></td>
+                                <td>OrderAZ5</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#6</strong></td>
+                                <td>OrderAZ6</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#7</strong></td>
+                                <td>OrderAZ7</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#8</strong></td>
+                                <td>OrderAZ8</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#9</strong></td>
+                                <td>OrderAZ9</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr> <tr>
+                                <td><strong>#10</strong></td>
+                                <td>OrderAZ10</td>
+                                <td>Laptop Acer N311</td>
+                                <td>50</td>
+                                <td>$320,800</td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="javascripts/cart.js"></script>
+<script>
+
+    function randomStatus(element) {
+        let r =Math.floor(Math.random() * 100) %3;
+        let cla;
+        let value;
+        switch (r) {
+            case 0: cla='status ps-setting';value='Đã giao';break;
+            case 1: cla='pd-setting';value='Đang giao';break;
+            default:cla ='ds-setting';value='Chưa giao'; break;
+        }
+        element.className=cla;
+        element.textContent=value;
+        console.log('radom = '+r+', value = '+cla);
+
+    }
+    function setStatus(element,cla, value) {
+        element.className=cla;
+        element.textContent = value;
+    }
+    function setStatuss(cls, value) {
+        let arr = document.getElementsByClassName("status");
+        for (let i = 0; i < arr.length; i++) {
+            setStatus(arr[i],cls,value);
+        }
+    }
+
+    function randomizeStatus() {
+        let arr = document.getElementsByClassName("status");
+        for (let i = 0; i < arr.length; i++) {
+            randomStatus(arr[i]);
+        }
+    }
+    switch ("{{{trangthai}}}") {
+        case 'tat-ca':randomizeStatus();break;
+        case 'da-giao':setStatuss(cla='status ps-setting',value='Đã giao'); break;
+        case 'dang-giao': setStatuss(cla='status pd-setting',value='Đang giao');break;
+        case 'chua-giao':setStatuss(cla ='status ds-setting',value='Chưa giao');break;
+        default:randomizeStatus();break;
+    }
+</script>

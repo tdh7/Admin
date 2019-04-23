@@ -156,7 +156,6 @@
    ========================================================================== */
 
 body {
-    font-family: 'Circular Std Book';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -173,7 +172,6 @@ h5,
 h6 {
     color: #3d405c;
     margin: 0px 0px 15px 0px;
-    font-family: 'Circular Std Medium';
 }
 
 h1 {
@@ -4166,6 +4164,12 @@ Pills vertical
     background-color: #5969ff;
     border-color: #5969ff;
 }
+.page-link.active {
+    z-index: 1;
+    color: #fff;
+    background-color: #5969ff;
+    border-color: #5969ff;
+}
 
 
 /*-----------------------
@@ -6976,3 +6980,49 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
+.status {
+    text-align: center;
+
+}
+.pd-setting {
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 15px;
+    background: #24caa1;
+    border-radius: 3px;
+}
+.ps-setting {
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 15px;
+    background: #2eb7f3;
+    border-radius: 3px;
+}
+.ds-setting {
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 15px;
+    background: #FFCC00;
+    border-radius: 3px;
+}
+ button.product-btn-history, button.pd-setting-ed {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: #f5f5f5;
+}
+button.pd-setting-ed{
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.green {
+    color:#4CD964;
+}
+.red {
+    color:#FF3B30;
+}
