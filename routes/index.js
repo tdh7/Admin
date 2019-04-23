@@ -29,4 +29,13 @@ router.get('/top-10-san-pham',function (req,res,next) {
 router.get('/top-10-danh-muc',function (req,res,next) {
   res.render('toptencategory',{title:'Top 10 danh mục'});
 })
+
+
+router.get('/quan-ly-tai-khoan',function (req,res,next) {
+  res.render('manageaccount',{title:'Quản lý tài khoản'});
+})
+
+router.get('/thay-doi-thong-tin-tai-khoan',function (req,res,next) {
+  res.render('editaccount',{title:'Thay đổi thông tin tài khoản'});
+})
 module.exports = router;
