@@ -9,5 +9,10 @@ router.get('/', function(req, res, next) {
 router.get('/danh-sach-san-pham', function(req, res, next) {
   res.render('list-product', { title: app_name });
 });
-
+router.get('/thay-doi-thong-tin-san-pham', function(req, res, next) {
+  res.render('change-info-product', { title: app_name });
+});
+router.get('/chi-tiet-san-pham', function(req, res, next) {
+  res.render('ecommerce-product-single', { title: app_name });
+});
 module.exports = router;
