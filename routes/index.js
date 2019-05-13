@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+/*
 var app_name ="EleFind Administration"
-/* GET home page. */
+// GET home page.
 router.get('/', function(req, res, next) {
   res.render('index', { title: app_name });
 });
@@ -47,4 +48,32 @@ router.get('/thay-doi-thong-tin-san-pham', function(req, res, next) {
 router.get('/chi-tiet-san-pham', function(req, res, next) {
   res.render('ecommerce-product-single', { title: app_name });
 });
+module.exports = router;
+
+*/
+
+var IndexController = require('../controllers');
+
+var ManageAccountController =require('../controllers/account/manageaccount');
+var EditAccountController = require('../controllers/account/editaccount');
+var ListProductController = require('../controllers/booth/list-product');
+var ChangeInfoProductController = require('../controllers/booth/change-info-product');
+var EcommerceProductSingleController = require('../controllers/booth/ecommerce-product-single');
+var OrderManagementController = require('../controllers/order/order-management');
+var SalesController = require('../controllers/sales/sales');
+var TopTenSalesController = require('../controllers/top10/toptensales');
+var TopTenCategoryController = require('../controllers/top10/toptencategory');
+
+router.get('/',IndexController.home);
+
+router.get('/quan-ly-tai-khoan',ManageAccountController.manageaccount);
+router.get('/thay-doi-thong-tin-tai-khoan',EditAccountController.editaccount);
+router.get('/danh-sach-san-pham',ListProductController.listproduct);
+router.get('/thay-doi-thong-tin-san-pham',ChangeInfoProductController.changeinfoproduct);
+router.get('/chi-tiet-san-pham',EcommerceProductSingleController.ecommerceproductsingle);
+router.get('/quan-ly-don-dat-hang',OrderManagementController.ordermanagement);
+router.get('/doanh-so',SalesController.sales);
+router.get('/top-10-san-pham',TopTenSalesController.toptensales);
+router.get('/top-10-danh-muc',TopTenCategoryController.toptencategory);
+
 module.exports = router;
