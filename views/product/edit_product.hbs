@@ -63,7 +63,14 @@
                         <div class="form-group row">
                             <label class="col-12 col-sm-3 col-form-label text-sm-right">Thương hiệu</label>
                             <div class="col-12 col-sm-8 col-lg-6">
-                                <input name="brand" type="text" required="" data-parsley-length="[1,20]" placeholder="Nhập tên thương hiệu" class="form-control" value="{{data.product.brand}}">
+                                <select id="inputState" name="brand" class="form-control">
+                                    {{#select data.product.brand}}
+                                        <option>Chọn...</option>
+                                        {{#each data.brands}}
+                                            <option value="{{this.displayName}}">{{this.displayName}} - {{this.name}}</option>
+                                        {{/each}}
+                                    {{/select}}
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -103,7 +110,7 @@
                         <div class="form-group row">
                             <label class="col-12 col-sm-3 col-form-label text-sm-right">Ảnh minh họa</label>
                             <div class="col-12 col-sm-8 col-lg-6">
-                                <input name="image" data-parsley-type="url" type="url" required="" placeholder="URL ảnh minh họa" class="form-control" value="{{data.product.image}}">
+                                <input name="image" required="" placeholder="URL ảnh minh họa" class="form-control" value="{{data.product.image}}">
                             </div>
                         </div>
                         <div class="form-group row">

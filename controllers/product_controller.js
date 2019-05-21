@@ -1,5 +1,6 @@
 const product = require('../model/product');
 const categoryDb = require('../model/category');
+const brandDb = require('../model/brand');
 const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
@@ -78,6 +79,7 @@ exports.request_edit_or_add_product = async (req, res, next) => {
     console.log(FgBlue,"autoId = "+data.autoId);
 
     data.categories = await categoryDb.all();
+    data.brands = await brandDb.all();
     if(data.product)
         res.render('product/edit_product', {title: 'Elefinder - Cập nhật sản phẩm',pageheader:'Cập nhật sản phẩm', data});
     else

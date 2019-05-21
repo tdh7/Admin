@@ -52,7 +52,7 @@ module.exports = router;
 
 */
 
-var IndexController = require('../controllers');
+var IndexController = require('../controllers/index_controller');
 
 var ManageAccountController =require('../controllers/account/manageaccount');
 var EditAccountController = require('../controllers/account/editaccount');

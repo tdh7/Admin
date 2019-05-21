@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var categoryRouter = require('./routes/category');
 var brandRouter = require('./routes/brand');
+var indexMaker = require('./routes/index_maker');
+
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -36,6 +38,7 @@ app.use('/san-pham',productRouter);
 app.use('/danh-muc',categoryRouter);
 app.use('/thuong-hieu',brandRouter);
 app.use('/users', usersRouter);
+app.use('/thiet-lap-bo-cuc',indexMaker);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
