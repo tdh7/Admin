@@ -1,0 +1,77 @@
+
+<div class="container-fluid  dashboard-content">
+    <!-- ============================================================== -->
+    <!-- pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+                <h2 class="pageheader-title">{{data.title}}
+                </h2>
+                <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                <div class="page-breadcrumb">
+                    <nav aria-labeal="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Trang chính</a></li>
+                            <li class="breadcrumb-item"><a href="{{data.url}}" class="breadcrumb-link">{{data.header}}</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Vui lòng nhập thông tin</h5>
+                <div class="card-body">
+                    <form action="{{data.urlSubmit}}" id="validationform" method="post" data-parsley-validate="" novalidate="">
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">ID</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input type = "hidden" name = "id" value = "{{#if data.autoId}}{{data.autoId}}{{else}}{{data.product.id}}{{/if}}"
+                                />
+                                <input type="text" required="" data-parsley-minlength="6" placeholder="Nhập id" value="{{data.autoId}} (Tự động phát sinh)" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Tên thương hiệu</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="name" type="text" required="" placeholder="Nhập tên đầy đủ thương hiệu" class="form-control" value="{{data.brand.name}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Tên hiển thị</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="displayName" type="text" required="" placeholder="Nhập tên đầy đủ thương hiệu" class="form-control" value="{{data.brand.displayName}}">
+                            </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                <button type="submit" class="btn btn-space btn-primary {{#if data.update}} {{else}}bg-green{{/if}}">{{#if data.update}}Cập nhật{{else}}Thêm thương hiệu{{/if}}</button>
+                                <button type="button" class="btn btn-space btn-secondary" onclick="window.location.href='{{data.url}}'">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+
+    </div>
+
+</div>
+<!-- Optional JavaScript -->
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="/vendor/parsley/parsley.js"></script>
+<script src="/libs/js/main-js.js"></script>

@@ -1,0 +1,251 @@
+
+<div class="container-fluid  dashboard-content">
+    <!-- ============================================================== -->
+    <!-- pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+                <h2 class="pageheader-title">{{pageheader}}
+                </h2>
+                <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                <div class="page-breadcrumb">
+                    <nav aria-labeal="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Trang chính</a></li>
+                            <li class="breadcrumb-item"><a href="/san-pham" class="breadcrumb-link">Sản phẩm</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Vui lòng nhập thông tin</h5>
+                <div class="card-body">
+                    <form action="/san-pham/cap-nhat" id="validationform" method="post" data-parsley-validate="" novalidate="">
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">ID</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input type = "hidden" name = "id" value = "{{#if data.autoId}}{{data.autoId}}{{else}}{{data.product.id}}{{/if}}"
+                                />
+                                <input type="text" required="" data-parsley-minlength="6" placeholder="Nhập id" value="{{data.autoId}} (Tự động phát sinh)" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Tên sản phẩm</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="name" type="text" required="" placeholder="Nhập tên sản phẩm" class="form-control" value="{{data.product.name}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Danh mục</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <select id="inputState" name="category" class="form-control">
+                                    {{#select data.product.category}}
+                                        <option>Chọn...</option>
+                                        {{#each data.categories}}
+                                            <option value="{{this.category}}">{{this.category}} - {{this.categoryName}}</option>
+                                        {{/each}}
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Thương hiệu</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="brand" type="text" required="" data-parsley-length="[1,20]" placeholder="Nhập tên thương hiệu" class="form-control" value="{{data.product.brand}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Giá bán hiện hành</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="price" type="text" required="" placeholder="Nhập giá bán hiện hành" class="form-control" value="{{data.product.price}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Giá cũ</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="oldPrice" type="text" required="required" placeholder="Nhập giá cũ" class="form-control" value="{{data.product.oldPrice}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Số sao đánh giá</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <select id="inputState" required="required" name="starRate" class="form-control">
+                                    {{#select data.product.starRate}}
+                                        <option value="0">Chọn số sao...</option>
+                                        <option value="1">1 sao</option>
+                                        <option value="2">2 sao</option>
+                                        <option value="3">3 sao</option>
+                                        <option value="4">4 sao</option>
+                                        <option value="5">5 sao</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Số tồn kho</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="count" type="text" required="required" data-parsley-min="0" placeholder="Nhập số tồn kho" class="form-control" value="{{data.product.count}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Ảnh minh họa</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input name="image" data-parsley-type="url" type="url" required="" placeholder="URL ảnh minh họa" class="form-control" value="{{data.product.image}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Chi tiết</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <textarea name="description" class="form-control">{{data.product.description}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Nhãn (Tag)</label>
+                            <div  class="col-12 col-sm-8 col-lg-6">
+                                <div id="#label_tag" class="col-12">
+                                    {{#if data.product.labels}}
+                                        {{#each data.product.labels}}
+                                            <div id="#labelgroup_{{@index}}" class="form-group row">
+                                                <div class="col-1">
+                                                    <button type="button" name="delete_{{@index}}" onclick="delete_label({{@index}})" data-toggle="tooltip" title="" class="pd-setting-ed red" data-original-title="Xóa sản phẩm"><i class="fa fa-trash-alt" aria-hidden="true"></i></button>
+                                                </div>
+                                                <div class="col-5">
+                                                    <select required="required" name="tagClass_{{@index}}" class="form-control">
+                                                        {{#select this.tagClass}}
+                                                            <option value="0">Chọn nhãn...</option>
+                                                            <option value="sale">Sale</option>
+                                                            <option value="new">New</option>
+                                                        {{/select}}
+                                                    </select>
+                                                </div>
+                                                <div class="col-6">
+                                                    <input required="required" name="title_{{@index}}" placeholder="Nhập tiêu đề" class="form-control" value="{{this.title}}">
+                                                </div>
+
+                                            </div>
+                                        {{/each}}
+                                    {{else}}
+                                        <div id="#labelgroup_0" class="form-group row">
+                                            <div class="col-1">
+                                                <button type="button" onclick="delete_label(0)" data-toggle="tooltip" title="" class="pd-setting-ed red" data-original-title="Xóa sản phẩm"><i class="fa fa-trash-alt" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div class="col-5">
+                                                <select id="#tagClass_0" name="tagClass_0" class="form-control">
+                                                    {{#select this.tagClass}}
+                                                        <option>Chọn nhãn...</option>
+                                                        <option value="sale">Sale</option>
+                                                        <option value="new">New</option>
+                                                    {{/select}}
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+                                                <input required="required" name="title_0" placeholder="Nhập tiêu đề" class="form-control">
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-2 form-group ">
+                                        <button onclick="add_label()" type="button" data-toggle="tooltip" title="" class="pd-setting-ed green" data-original-title="Thêm nhãn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                <button type="submit" class="btn btn-space btn-primary {{#if data.product}} {{else}}bg-green{{/if}}">{{#if data.product}}Cập nhật {{else}}Thêm sản phẩm{{/if}}</button>
+                                <button type="button" class="btn btn-space btn-secondary" onclick="window.location.href='/san-pham'">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+
+    </div>
+
+</div>
+<!-- Optional JavaScript -->
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="/vendor/parsley/parsley.js"></script>
+<script src="/libs/js/main-js.js"></script>
+<script>
+    function delete_label(index) {
+        console.log(index);
+        let label = document.getElementById('#labelgroup_'+index);
+        if(label) label.remove();
+    }
+
+    function add_label() {
+        let index = 0;
+        let element;
+
+        let parent = document.getElementById('#label_tag');
+        console.log('found parent = '+ parent);
+        if(parent) {
+            do {
+                element = document.getElementById('#labelgroup_'+index);
+                if(element)
+                    index++;
+            } while (element);
+            console.log(" index = "+index);
+            const cloneNode = $(" <div id=\"#labelgroup_"+index+"\" class=\"form-group row\">\n" +
+                    "                                    <div class=\"col-1\">\n" +
+                    "                                        <button type='button' onclick=\"delete_label("+index+")\" data-toggle=\"tooltip\" title=\"\" class=\"pd-setting-ed red\" data-original-title=\"Xóa sản phẩm\"><i class=\"fa fa-trash-alt\" aria-hidden=\"true\"></i></button>\n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"col-5\">\n" +
+                    "                                        <select required=\"\" id=\"#tagClass_"+index+"\" name=\"tagClass_0\" class=\"form-control\">\n" +
+                    "                                            \n"+
+                    "                                                <option>Chọn nhãn...</option>\n" +
+                    "                                                <option value=\"sale\">Sale</option>\n" +
+                    "                                                <option value=\"new\">New</option>\n" +
+                    "                                            \n" +
+                    "                                        </select>\n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"col-6\">\n" +
+                    "                                        <input required=\"required\" name=\"title_"+index+"\" placeholder=\"Nhập tiêu đề\" class=\"form-control\" >\n" +
+                    "                                    </div>\n" +
+                    "                                </div>");
+            cloneNode.appendTo(parent);
+        }
+    }
+
+    $('#form').parsley();
+</script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

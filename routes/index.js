@@ -56,9 +56,8 @@ var IndexController = require('../controllers');
 
 var ManageAccountController =require('../controllers/account/manageaccount');
 var EditAccountController = require('../controllers/account/editaccount');
-var ListProductController = require('../controllers/booth/list-product');
-var ChangeInfoProductController = require('../controllers/booth/change-info-product');
-var EcommerceProductSingleController = require('../controllers/booth/ecommerce-product-single');
+var ChangeInfoProductController = require('../controllers/product/change-info-product');
+var EcommerceProductSingleController = require('../controllers/product/ecommerce-product-single');
 var OrderManagementController = require('../controllers/order/order-management');
 var SalesController = require('../controllers/sales/sales');
 var TopTenSalesController = require('../controllers/top10/toptensales');
@@ -68,7 +67,6 @@ router.get('/',IndexController.home);
 
 router.get('/quan-ly-tai-khoan',ManageAccountController.manageaccount);
 router.get('/thay-doi-thong-tin-tai-khoan',EditAccountController.editaccount);
-router.get('/danh-sach-san-pham',ListProductController.listproduct);
 router.get('/thay-doi-thong-tin-san-pham',ChangeInfoProductController.changeinfoproduct);
 router.get('/chi-tiet-san-pham',EcommerceProductSingleController.ecommerceproductsingle);
 router.get('/quan-ly-don-dat-hang',OrderManagementController.ordermanagement);

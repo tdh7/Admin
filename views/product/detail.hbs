@@ -1,0 +1,157 @@
+<div >
+    <div>
+        <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12  col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Chi tiết sản phẩm </h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Trang chính</a></li>
+                                            <li class="breadcrumb-item"><a href="/san-pham" class="breadcrumb-link">Sản phẩm</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pr-xl-0 pr-lg-0 pr-md-0  m-b-30">
+                                    <div class="product-slider">
+                                        <div id="productslider-1" class="product-carousel carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+
+                                            </ol>
+                                            <div class="carousel-inner">
+
+                                                <div class="carousel-item active">
+                                                    <img class="d-block"  src="{{data.product.image}}" alt="First slide">
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                             <span class="sr-only">Previous</span>
+                                                  </a>
+                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                 <span class="sr-only">Next</span>
+                                                     </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pl-xl-0 pl-lg-0 pl-md-0 border-left m-b-30">
+                                    <div class="product-details">
+                                        <div class="border-bottom pb-3 mb-3">
+                                            <h2 class="mb-3">{{data.product.name}}</h2>
+                                            <div class="product-rating d-inline-block float-right">
+                                                {{#repeat data.product.starRate}}
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                {{/repeat}}
+                                            </div>
+                                            <h3 class="mb-0 text-primary">{{data.product.price}}</h3>
+                                        </div>
+                                        <div class="product-colors border-bottom">
+                                            <h3>Danh mục</h3>
+                                            <h4 class="mb-0 text-primary">
+                                            <a href="/san-pham?danhmuc={{data.product.category}}">{{data.product.categoryName}}</a>
+                                            </h4>
+                                        </div>
+                                        <div class="product-size border-bottom">
+                                            <h4>Số lượng</h4>
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button type="button" class="btn btn-outline-light">{{data.product.count}}</button>
+                                            </div>
+                                        </div>
+                                        <div class="product-description">
+                                            <h4 class="mb-1">Thông tin sản phẩm:</h4>
+                                            <p>{{data.product.description}}
+                                            </p>
+                                            <div class="row_2">
+                                                <div class="column"><a href="/san-pham/sua-thong-tin-{{data.product.category}}-{{data.product.id}}" class="btn btn-primary btn-block btn-lg bg-green">Sửa thông tin</a></div>
+                                                <div class="column"><a href="/san-pham/xac-nhan-xoa-{{data.product.category}}-{{data.product.id}}" class="btn btn-primary btn-block btn-lg bg-red">Xóa sản phẩm</a></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-b-60">
+                                    <div class="simple-card">
+                                        <ul class="nav nav-tabs" id="myTab5" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active border-left-0" id="product-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="product-tab-1" aria-selected="true">Thông tin chi tiết</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="product-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="product-tab-2" aria-selected="false">Nhận xét</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent5">
+                                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="product-tab-1">
+                                                <p>Dell G7 7588 i5 vẫn sử dụng chất liệu kim loại cho toàn bộ phần mặt trước cũng như bộ khung bên trong nên độ cứng cáp và chắc chắn mình không có gì để chê cả, cảm giác ọp ẹp khi dùng một lực mạnh để nhấn vào phần mặt trước gần như không có, hai cạnh bên được bo cong sang hai bên nhưng hai góc trên của máy sẽ hơi bén khi mở máy sử dụng.</p>
+                                                
+                                                <ul class="list-unstyled arrow">
+                                                    <li>
+                                                        Hiệu năng cực tốt.</li>
+                                                    <li>Giá cả phải chăng</li>
+                                                    <li>Bảo hành tận nhà
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="product-tab-2">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“Máy chơi game mượt mà.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Hoàng</span><small class="text-mute"> (Đại học Kiến Trúc TPHCM)</small>
+                                                </div>
+                                                <div class="review-block border-top mt-3 pt-3">
+                                                    <p class="review-text font-italic m-0">“Máy hơi nhanh hết pin nhưng chạy khá ổn.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Minh</span><small class="text-mute"> (Đại học Bách Khoa TPHCM)</small>
+                                                </div>
+                                                <div class="review-block  border-top mt-3 pt-3">
+                                                    <p class="review-text font-italic m-0">“Bảo hành khá nhanh chóng. Nhân viên nhiệt tình.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Vũ</span><small class="text-mute"> (Đại học KHTN TPHCM)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
+</div>

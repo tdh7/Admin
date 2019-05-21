@@ -254,18 +254,20 @@ label {
     width: 100%;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #71748d;
+    color: #48454B;
     background-color: #fff;
     background-image: none;
     border: 1px solid #d2d2e4;
     border-radius: 2px;
+    font-weight: 600;
 }
 
 .form-control:focus {
-    color: #71748d;
+    color: #5148B2;
     background-color: #fff;
     border-color: #a7a7f0;
     outline: 0;
+
     box-shadow: 0 0 0 0.2rem rgba(214, 214, 255, .75);
 }
 
@@ -279,6 +281,7 @@ input[type=file] {
 
 .col-form-label {
     font-size: 15px;
+    font-weight: 600;
 }
 
 input {}
@@ -303,7 +306,7 @@ select.form-control {
 }
 
 textarea.form-control {
-    height: auto;
+    height: 200px;
     color: #71748d;
     background-color: #fff;
     background-image: none;
@@ -313,7 +316,7 @@ textarea.form-control {
 }
 
 input::-webkit-input-placeholder {
-    color: #71748d !important;
+    color: #A1A1B1 !important;
 }
 
 input:focus::-webkit-input-placeholder {
@@ -321,7 +324,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 textarea::-webkit-input-placeholder {
-    color: #71748d !important;
+    color: #A1A1B1 !important;
 }
 
 textarea:focus::-webkit-input-placeholder {
@@ -6458,7 +6461,7 @@ Vertical Timeline - by CodyHouse.co
 }
 
 .chat-module .chat-module-bottom textarea {
-    max-height: 9rem;
+    max-height: 400px;
 }
 
 .chat-form textarea {
@@ -7023,6 +7026,44 @@ button.pd-setting-ed{
 .green {
     color:#4CD964;
 }
+.blue {
+    color:#007AFF;
+}
 .red {
     color:#FF3B30;
+}
+.yellow {
+    color: #FF7E00;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.table-responsive td{
+    text-align: center;
+}
+.table-responsive th{
+    text-align: center;
+}
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.row_2 {
+    display: flex;
+}
+
+.row_2 .column {
+    flex: 50%;
+    padding: 10px;
+}
+.bg-red {
+    background-color: #FF3B30;
+}
+.bg-green {
+    background-color: #4CD964;
+}
+.add-product {
+    display: inline;
+    float:right;
 }

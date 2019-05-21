@@ -1,0 +1,78 @@
+
+<div class="container-fluid  dashboard-content">
+    <!-- ============================================================== -->
+    <!-- pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+                <h2 class="pageheader-title">{{data.title}}</h2>
+                <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                <div class="page-breadcrumb">
+                    <nav aria-labeal="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Trang chính</a></li>
+                            <li class="breadcrumb-item"><a href="{{data.url}}" class="breadcrumb-link">{{data.title}}</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end pageheader -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header" style="display: inline">
+                    <h2 style="float:left">{{data.title}}</h2>
+                    {{#if data.add}}
+                    <button onclick="window.location.href='{{data.add.url}}'" class="add-product btn btn-primary bg-green">{{data.add.title}}</button>
+                    {{/if}}
+                    </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered first">
+                            <thead>
+                            <tr>
+                                {{#each data.rowNames}}
+                                    <th>{{this}}</th>
+                                {{/each}}
+                                {{#if data.option}}
+                                    <th>Cài đặt</th>
+                                {{/if}}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each data.list}}
+                                <tr>
+                                    {{#eachToDisplayProperty this ../data.rows}}
+                                        <td>
+                                            {{value}}
+                                        </td>
+                                    {{/eachToDisplayProperty}}
+                                    {{#if ../data.option}}
+                                    <td>
+                                    {{#each this.options}}
+                                        <button onclick="window.location.href='{{this.url}}'" data-toggle="tooltip" title="{{this.title}}" class="pd-setting-ed {{this.color}}" data-original-title="{{this.title}}"><i class="{{this.class}}" aria-hidden="true"></i></button>
+                                    {{/each}}
+                                    </td>
+                                    {{/if}}
+                                </tr>
+
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
