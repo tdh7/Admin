@@ -1,6 +1,7 @@
 const product = require('../model/product');
 const categoryDb = require('../model/category');
 const brandDb = require('../model/brand');
+const Util = require('../helpers/util');
 const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
@@ -47,6 +48,7 @@ exports.product_detail = async (req,res,next) => {
     console.log(FgBlue,"get result : category = "+result.category+", id = "+result.id);
     if(result) {
         data.product = result;
+        if(data.product.image) data.product.image = Util.getOriginalImages(data.product.image);
         res.render('product/detail', {title: 'Elefinder - Danh sách sản phẩm', data});
     } else {
         res.render('error', { customStyleSheet:'stylesheets/error.css' });
