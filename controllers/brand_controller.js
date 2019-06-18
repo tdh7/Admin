@@ -5,6 +5,10 @@ const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
     const data = {};
+    data.user = req.user;
+    if (!req.user) {
+       return res.redirect('/dang-nhap');
+    }
     data.list = await brandDb.all();
     data.rows = ["index","id","name","displayName"];
     data.rowNames =["Số thứ tự","ID","Tên thương hiệu","Tên hiển thị"];
@@ -30,6 +34,12 @@ const home = async function(req, res, next) {
 exports.home = home;
 
 exports.detail = async (req,res,next) => {
+
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     var category = req.params.category;
     var productId = req.params.productId;
 
@@ -55,6 +65,11 @@ exports.detail = async (req,res,next) => {
  */
 
 exports.request_edit_or_add = async (req, res, next) => {
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
    var brand = req.params.brand;
 
     const data = {};
@@ -107,6 +122,11 @@ exports.request_edit_or_add = async (req, res, next) => {
  */
 
 exports.update = async (req, res, next) => {
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     const p = req.body;
     if(p.id&&p.name&&p.displayName) {
         const data = {};
@@ -124,6 +144,11 @@ exports.update = async (req, res, next) => {
 };
 
 exports.delete = async (req, res, next) => {
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     var brand = req.params.brand;
 
     if(brand) {

@@ -4,6 +4,11 @@ const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
     const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     data.categories = await categoryDb.all();
 
     if(data.categories)
@@ -16,12 +21,14 @@ const home = async function(req, res, next) {
 exports.home = home;
 
 exports.detail = async (req,res,next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     var category = req.params.category;
     var productId = req.params.productId;
 
-    const data = {
-        product
-    };
     console.log(FgBlue,"receive category = " + category + ", product_id = " + productId);
     const result = await product.find_product_by_category_and_id(category,productId);
     console.log(FgBlue,"get result : category = "+result.category+", id = "+result.id);
@@ -44,6 +51,10 @@ exports.request_edit_or_add = async (req, res, next) => {
     var category = req.params.category;
 
     const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
 
     if(category) {
         console.log(FgBlue,"receive category = " + category);
@@ -91,9 +102,15 @@ exports.request_edit_or_add = async (req, res, next) => {
  */
 
 exports.update = async (req, res, next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     const p = req.body;
     if(p.id&&p.category&&p.categoryName&&p.count) {
-        const data = {};
+
         data.id = p.id;
         data.category = p.category;
         data.categoryName = p.categoryName;
@@ -109,6 +126,11 @@ exports.update = async (req, res, next) => {
 };
 
 exports.delete = async (req, res, next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     var category = req.params.category;
 
     if(category) {

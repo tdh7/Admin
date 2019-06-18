@@ -1,5 +1,9 @@
 exports.sales = function(req, res, next) {
-
-    res.render('sales/sales', { title: 'Doanh số' });
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+    res.render('sales/sales', { title: 'Doanh số',data });
 
 };

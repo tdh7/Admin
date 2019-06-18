@@ -5,15 +5,21 @@ const Util = require('../helpers/util');
 const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
+    const data = {
+        products: []
+    };
+
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     let category = req.query.danhmuc;
     if(category==='all') category = undefined;
     let brand = req.query.thuonghieu;
 
     let search = req.query.timkiem;
 
-    const data = {
-        products: []
-    };
+
 
     data.search = search;
     data.category = category;
@@ -43,6 +49,11 @@ exports.product_detail = async (req,res,next) => {
     const data = {
         product
     };
+
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     console.log(FgBlue,"receive category = " + category + ", product_id = " + productId);
     const result = await product.find_product_by_category_and_id(category,productId);
     console.log(FgBlue,"get result : category = "+result.category+", id = "+result.id);
@@ -67,7 +78,10 @@ exports.request_edit_or_add_product = async (req, res, next) => {
     var productId = req.params.productId;
 
     const data = {};
-
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     if(category&&productId) {
         console.log(FgBlue,"receive category = " + category + ", product_id = " + productId);
         const result = await product.find_product_by_category_and_id(category,productId);
@@ -97,9 +111,14 @@ exports.request_edit_or_add_product = async (req, res, next) => {
  */
 
 exports.update_product = async (req, res, next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
     const p = req.body;
     if(p.id&&p.name&&p.category&&p.image&&p.starRate&&p.price&&p.brand) {
-        const data = {};
+
         data.id = p.id;
         data.name = p.name;
         data.category = p.category;
@@ -133,6 +152,12 @@ exports.update_product = async (req, res, next) => {
 };
 
 exports.delete_product = async (req, res, next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     var category = req.params.category;
     var productId = req.params.productId;
 

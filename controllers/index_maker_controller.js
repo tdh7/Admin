@@ -6,6 +6,11 @@ const FgBlue = "\x1b[34m";
 
 const home = async function(req, res, next) {
     const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     const top_categories = await indexMakerDb.get_top_categories();
     const sections = await indexMakerDb.get_products_sections();
 
@@ -30,9 +35,15 @@ exports.home = home;
  */
 
 exports.update = async (req, res, next) => {
+    const data = {};
+    data.user = req.user;
+    if (!req.user) {
+        return res.redirect('/dang-nhap');
+    }
+
     const p = req.body;
     if(p.id&&p.name&&p.displayName) {
-        const data = {};
+
         data.id = p.id;
         data.name = p.name;
         data.displayName = p.displayName;
